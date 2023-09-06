@@ -1,18 +1,32 @@
 <script>
 export default {
-  props:['score'],
+  props: ["score"],
   data() {
     return {
-    result: this.score,
+      result: this.score,
+      ranking: this.rank(),
     };
   },
-  methods: {},
-};
+  methods: {
+    rank() {
+      if (this.score <= 300 ) {
+        return " Expert";
+      }
+      if (this.score <= 400 && this.result > 300) {
+        return " Intermédiaire";
+      } else if (this.score > 400) {
+        return " Débutant";
+      }
+      return "e Erreur de calcul";
+    },
+  },
+}
 </script>
 <template>
   <div class="block">
     <h1>Votre Score</h1>
     <p>{{ result }} millisecondes</p>
+    <p>Vous êtes un{{ ranking }}</p>
   </div>
 </template>
 <style scoped>
