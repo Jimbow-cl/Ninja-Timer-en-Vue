@@ -12,7 +12,7 @@ export default {
       if (this.score <= 300 ) {
         return " Expert";
       }
-      if (this.score <= 400 && this.result > 300) {
+      if (this.score < 400 ) {
         return " Intermédiaire";
       } else if (this.score > 400) {
         return " Débutant";
